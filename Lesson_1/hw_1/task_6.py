@@ -24,9 +24,15 @@
 НАРУШЕНИЕ обозначенных условий - задание не выполнено!!!
 """
 import chardet
+import csv
 
 # явное указание кодировки при работе с файлом
 def enc_convert(name_file):
+    """
+    Конвентирует
+    :param name_file: file
+    :return: None
+    """
     with open(name_file, 'rb') as file:
         content_bytes = file.read()
     detected = chardet.detect(content_bytes)
@@ -36,8 +42,8 @@ def enc_convert(name_file):
         file.write(content_text)
 
 
-enc_convert('test_file.txt')
+enc_convert('info_1.txt')
 
-with open('test_file.txt', encoding='utf-8') as f_n:
+with open('info_1.txt', encoding='utf-8') as f_n:
     for el_str in f_n:
         print(el_str, end='')
